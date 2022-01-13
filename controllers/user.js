@@ -4,9 +4,9 @@ const User = require("../models/User");
 exports.signup = (req, res, next) => {
   bcrypt
     .hash(req.body.password, 10)
-    .then((hash) => {
+    .then(hash => {
       const user = new User({
-        email: email,
+        email: req.body.email,
         password: hash,
       });
       user
@@ -24,8 +24,8 @@ exports.signup = (req, res, next) => {
 };
 
 exports.login = (req, res, next) => {
-  User.findOne({ email: email })
-    .then((user) => {
+  User.findOne({ email: req.body.email })
+    .then(user => {
       if (!user) {
         return res
           .status(status.UNAUTHORIZED)
