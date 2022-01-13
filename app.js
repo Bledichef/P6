@@ -1,9 +1,10 @@
 const express = require("express");
-
+const app = express();
 const mongoose = require("mongoose");
 const User = require("./models/User");
 const userRoutes = require("./routes/user");
-const app = express();
+
+
 
 mongoose
 
@@ -25,6 +26,8 @@ app.use((req, res, next) => {
   );
   next();
 });
+
+app.use(express.json());
 
 app.use("/api/auth", userRoutes);
 

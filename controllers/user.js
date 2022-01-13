@@ -2,25 +2,21 @@ const bcrypt = require("bcrypt");
 const User = require("../models/User");
 
 exports.signup = (req, res, next) => {
-  bcrypt
-    .hash(req.body.password, 10)
-    .then(hash => {
+  bcrypt.hash(req.body.password, 10)
+    
+        .then(hash => {
+   
       const user = new User({
         email: req.body.email,
-        password: hash,
+        password: hash
       });
-      user
-        .save()
-        .then(() =>
-          res
-            .status(status.CREATED)
-            .json({ message: "Utilisateur créé et sauvegardé" })
-        )
+      user.save()
+        .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
 
-        .catch((error) => res.status(status.BAD_REQUEST).json({ error }));
+        .catch(error => res.status(400).json({ error }));
     })
 
-    .catch((error) => res.status(status.INTERNAL_SERVER_ERROR).json({ error }));
+    .catch((error) => res.status(500).json({ error }));
 };
 
 exports.login = (req, res, next) => {
