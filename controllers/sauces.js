@@ -10,14 +10,16 @@ exports.createSauce = (req, res, next) => {
             ...sauceObject,
            imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}` 
    });
-    if (sauce.userId === req.token.userId) {
+ 
+   
+  //  if (sauce.userId === req.token.userId) {
          sauce.save()
                  .then(() => res.status(201).json({ message: 'Sauce enregistrée !' }))
                   .catch(error => { res.status(400).json({ message: error }) })
-        }
+    /*    }
    else {
         res.status(401).json({ error: "userId non valable" });
-    }
+    }*/
 };
 
 
@@ -44,7 +46,7 @@ exports.modifySauce = (req, res, next) => {
 };
 
 
-
+/*
 exports.deleteSauce = (req, res, next) => {
       Sauce.findOne({ _id: req.params.id })
              .then(sauce => {
@@ -60,6 +62,19 @@ exports.deleteSauce = (req, res, next) => {
             }
         })
         .catch(error => res.status(500).json({ error }));
+};   */
+
+exports.deleteSauce = (req, res, next) => {
+    Sauce.findOne({ _id: req.params.id })
+      .then(sauce => {
+        const filename = sauce.imageUrl.split('/images/')[1];
+        fs.unlink(`images/${filename}`, () => {
+          Sauce.deleteOne({ _id: req.params.id })
+            .then(() => res.status(200).json({ message: 'Sauce supprimée !'}))
+            .catch(error => res.status(400).json({ error }));
+        });
+      })
+      .catch(error => res.status(500).json({ error }));
 };
 
 exports.getAllSauces = (req, res, next) => {
