@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+
 const User = require("./models/User");
 const userRoutes = require("./routes/user");
 
@@ -8,10 +9,20 @@ const saucesRoutes = require('./routes/sauces');
 const path = require("path");
 const likeRoutes = require('./routes/like');
 
+// index.js
+require('dotenv').config()
+
+
+
+
 mongoose
 
-  .connect(
+ /* .connect(
     "mongodb+srv://Guillaume:10@test.munwb.mongodb.net/test?retryWrites=true&w=majority"
+  )*/
+
+  .connect(
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@test.munwb.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
   )
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch(() => console.log("Connexion à MongoDB échouée !"));
