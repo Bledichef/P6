@@ -6,6 +6,8 @@ Projet 6 - Construire une API sécurisée pour une application d'avis gastronomi
 
 Frontend fourni
 
+https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6
+
 API réalisée avec :
 
 Node.js
