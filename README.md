@@ -30,5 +30,5 @@ Lancer le navigateur avec la commande npm start
 Ouvrir un terminal dans le dossier backend -> cd backend
 
 Exécuter la commande npm install
-Créer un dossier nommé images avec la commande mkdir images
+
 Lancer le serveur avec la commande nodemon server
