@@ -26,7 +26,9 @@ Installer nodemon -> npm install -g nodemon
 Ouvrir un terminal dans le dossier frontend -> cd frontend
 
 Exécuter la commande npm install
+
 Lancer le navigateur avec la commande npm start
+
 Ouvrir un terminal dans le dossier backend -> cd backend
 
 Exécuter la commande npm install
