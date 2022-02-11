@@ -1,0 +1,1 @@
+Dans ce dossier images vos fichiers envoyé à l'application sont enregistré ici en local.
