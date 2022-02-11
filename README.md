@@ -15,7 +15,7 @@ Express
 MongoDB
 Contraintes relatives à la sécurité des données et de l'application respectées
 
-Pour le lancement de l'application et la connexion à la base de données MongoDB, il faut récupérer les valeurs des variables d'environnement contenues dans le fichier .env.dist
+Pour le lancement de l'application et la connexion à la base de données MongoDB, il faut récupérer les valeurs des variables d'environnement contenues dans le fichier .env
 
 ######## Pour l'installation en local du projet #######
 
